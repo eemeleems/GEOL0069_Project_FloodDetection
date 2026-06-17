@@ -1,6 +1,7 @@
 # Multi-Sensor Machine Learning for Flood Characterisation in South Yorkshire: Extent and Depth
 
 ![Sentinel-1 Fishlake Sentinel-1](images/Notebook1_FishlakeSentinel1.png)
+*Figure 1: Four-panel visualisation of Sentinel-1 SAR data for Fishlake, 2019, and a Copernicus elevation DEM for the same site.*
 
 ## 4. Project Description
 
@@ -41,12 +42,14 @@ While rapid, accurate mapping is vital for emergency response and protection of 
 **Flood Extent Detection**: To bypass the circular logic of training an AI model to copy an empirical threshold baseline, classifiers were trained exclusively on a Confident Core of pixels. Their capacity to learn real physical signals was challenged by predicting the unlabelled Ambiguous Margin and independent scenes.
 
 ![Model Comparison IoU](images/Notebook2_ModelComparisonIoU.png)
+*Figure 9: An overall model comparison of 'Intersection over Union' (our accuracy measurement) for Margin pixels, Spatial Testing (Bentley/Toll Bar), and Temporal Testing (Fishlake Jan 2021).*
 
 **Multimodal Flood Depth Estimation**: Because satellite backscatter highlights water location rather than volume, we evaluated how effectively remote sensing data can predict a terrain-derived depth proxy across a flat floodplain.
 
 ![Flood Uncertainty Best Model](images/Notebook3_FloodUncertainty+Depth.png)
+*Figure 14: Full depth and uncertainty map for best approach: Combined (C) using SAR + terrain AND optical.*
 
-See the Project Notebooks for a more extensive description of methodology.
+**See the Project Notebooks and README for a more extensive description of methodology.**
 
 ---
 
