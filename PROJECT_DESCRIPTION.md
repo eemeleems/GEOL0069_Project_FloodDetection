@@ -49,7 +49,7 @@ While rapid, accurate mapping is vital for emergency response and protection of 
 ![Flood Uncertainty Best Model](images/Notebook3_FloodUncertainty+Depth.png)
 *Figure 14: Full depth and uncertainty map for best approach: Combined (C) using SAR + terrain AND optical.*
 
-**See the Project Notebooks and README for a more extensive description of methodology.**
+**See the [Project Notebooks](Project_Notebooks/) and [README](README.md) for a more extensive description of methodology.**
 
 ---
 
