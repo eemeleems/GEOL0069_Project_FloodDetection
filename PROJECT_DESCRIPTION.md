@@ -3,7 +3,7 @@
 ![Sentinel-1 Fishlake Sentinel-1](images/Notebook1_FishlakeSentinel1.png)
 *Figure 1: Four-panel visualisation of Sentinel-1 SAR data for Fishlake, 2019, and a Copernicus elevation DEM for the same site.*
 
-## 4. Project Description
+## Project Description
 
 
 Flooding is one of the most frequent and costly natural hazards in the United Kingdom, and its severity, spatial extent, and return frequencies are projected to escalate under a warming climate. Between 7th and 10th November 2019, exceptional meteorological conditions drove the River Don at Doncaster (South Yorkshire) to its highest recorded level of over 6.3, eclipsing the historic 2007 benchmark. According to Doncaster Council's subsequent flood investigation, this extreme event directly inundated 897 properties across the borough, with the low-lying village of Fishlake among the worst hit.
@@ -13,7 +13,7 @@ While rapid, accurate mapping is vital for emergency response and protection of 
 
 ---
 
-### 4.1 Structure:
+### 1. Structure:
 
 * **Notebook 1: Data Acquisition**
     * Ingested Sentinel-1 SAR GRD Pair (Pre-flood vs. Mid-flood: Nov 2019 / Jan 2021)
@@ -53,7 +53,7 @@ While rapid, accurate mapping is vital for emergency response and protection of 
 
 ---
 
-### 4.2 Project Limitations:
+### 2. Project Limitations:
 
 - Validation Limits of the Depth Proxy: A primary constraint is the reliance on an unvalidated, HAND-style elevation proxy rather than true hydrodynamic measurements. While topographically logical, this proxy assumes a uniform horizontal flood plane. It cannot capture localized variations driven by surface obstacles, micro-topography, or urban defenses.
 
@@ -63,7 +63,7 @@ While rapid, accurate mapping is vital for emergency response and protection of 
 
 - Temporal Resolution Constraints: The project relies on single image pairs, capturing static snapshots rather than the full flood hydrograph. While out-of-sample tests partially demonstrate spatial and temporal transferability, they cannot track how depth or extent evolve dynamically within a single event.
 
-### 4.3 Reference List:
+### 3. Reference List:
 
 * Doncaster Council (2020). Section 19 Flood Investigation Report: November 2019 Flood Event. Flood Risk Management Team. https://www.doncaster.gov.uk/services/emergencies/flood-recovery-report.
 
