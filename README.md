@@ -120,7 +120,7 @@ GEOL0069_Project_FloodDetection/
     ├── Notebook3_FloodUncertainty+Depth.png
     ├── Notebook3_GP_ARD.png
     ├── Notebook3_Kmeans.png
-    ├── Notebook3_NDWWI+MNDWI.png
+    ├── Notebook3_NDWI+MNDWI.png
     └── Notebook3_SHAPbeeswarm.png
 ```
 
@@ -178,7 +178,7 @@ Training a classifier directly on the Threshold Baseline's own output would guar
 
 ### Phase 3: Depth Proxy and Explainable Regression (Notebook 3)
 
-SAR backscatter provides floodwater locations, but no depth information it. With no obvious LiDAR or gauge data available for this floodplain, depth is approximated with a DEM-derived proxy in the spirit of Height Above Nearest Drainage (Rennó et al., 2008): the maximum elevation along the flood's edge, minus each pixel's own elevation. This is compared against the post-flood Sentinel-2 scene's water-colour indices - NDWI, MNDWI, and the Stumpf ratio, computed from the green, NIR, and SWIR bands. Three Gaussian Process regression models, each using a kernel with Automatic Relevance Determination (ARD), are fitted on SAR+terrain features alone, optical features alone, and the two combined. The resulting feature lengthscales are cross-checked against SHAP values from an independent Random Forest regressor.
+SAR backscatter provides floodwater locations, but no depth information. With no obvious LiDAR or gauge data available for this floodplain, depth is approximated with a DEM-derived proxy in the spirit of Height Above Nearest Drainage (Rennó et al., 2008): the maximum elevation along the flood's edge, minus each pixel's own elevation. This is compared against the post-flood Sentinel-2 scene's water-colour indices - NDWI, MNDWI, and the Stumpf ratio, computed from the green, NIR, and SWIR bands. Three Gaussian Process regression models, each using a kernel with Automatic Relevance Determination (ARD), are fitted on SAR+terrain features alone, optical features alone, and the two combined. The resulting feature lengthscales are cross-checked against SHAP values from an independent Random Forest regressor.
 
 <br />
 <div align="center">
@@ -204,7 +204,7 @@ SAR backscatter provides floodwater locations, but no depth information it. With
 | Support Vector Machine | 0.963 | 0.981 | 0.952 |
 | Patch-based 2D CNN | 0.547 | 0.679 | 0.421 |
 
-Random Forest generalised most consistently across all three evaluation axes, consistent with learning something close to the underlying SAR threshold rule rather than scene-specific texture. The CNN generalised worst and notabl, dropped further on the temporal test than the spatial one, suggesting some reliance on acquisition-specific SAR texture rather than a fully transferable flood signal.
+Random Forest generalised most consistently across all three evaluation axes, consistent with learning something close to the underlying SAR threshold rule rather than scene-specific texture. The CNN generalised worst and notably dropped further on the temporal test than the spatial one, suggesting some reliance on acquisition-specific SAR texture rather than a fully transferable flood signal.
 
 **Depth regression**
 
@@ -258,7 +258,12 @@ Every model trained in Notebooks 2 and 3 is tracked with [CodeCarbon](https://co
 
 ## Project Video
 
-* A short video walkthrough explaining the code and approach is available here: **[Watch on YouTube](https://www.youtube.com/watch?v=YOUR-VIDEO-ID)**.
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=YOUR-VIDEO-ID">
+    <img src="https://img.youtube.com/vi/YOUR-VIDEO-ID/maxresdefault.jpg" alt="Watch the video walkthrough" width="650">
+  </a>
+  <p><em>Click to watch the video walkthrough on YouTube.</em></p>
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -284,7 +289,7 @@ Every model trained in Notebooks 2 and 3 is tracked with [CodeCarbon](https://co
 
 Emily Grace Adams - [LinkedIn](https://www.linkedin.com/in/emily-grace-adams/) - emily.adams.25@ucl.ac.uk
 
-Project Link: [https://github.com/eemeleems/GEOL0069_Project_FloodDetection](https://github.com/YOUR-USERNAME/GEOL0069_Project_FloodDetection)
+Project Link: [https://github.com/eemeleems/GEOL0069_Project_FloodDetection](https://github.com/eemeleems/GEOL0069_Project_FloodDetection)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
