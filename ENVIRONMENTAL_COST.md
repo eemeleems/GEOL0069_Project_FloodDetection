@@ -232,6 +232,7 @@ driving** in an average UK car (DfT 2024 data). This remains modest in absolute
 terms. It is however important to consider that the calculated CodeCarbon value (81.31 g) likely 
 represents only around a **fifth to a quarter** of a fuller estimate of the carbon cost of the project's
 development(including laptop use).
+
 ---
 
 ## 9. Sources
