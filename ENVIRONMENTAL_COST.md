@@ -12,7 +12,7 @@ measured figure is a lower bound.
 
 ---
 
-## 1. Measured Compute Emissions
+## 1. Measured Computation Emissions
 
 Across Notebooks 2 and 3, CodeCarbon recorded a combined total of:
 
@@ -146,7 +146,7 @@ divided across this entire user base and is not meaningfully separable on a per-
 basis. This project's use of these datasets does not represent an additional or marginal demand on this
 infrastructure beyond what already exists.
 
-### 5.2 Cloud compute: Google Earth Engine and Colab
+### 5.2 Cloud computation: Google Earth Engine and Colab
 
 All SAR, optical, and DEM data in this project was processed server-side via Google Earth Engine, and all
 model training ran on Google Colab - both hosted in data centres whose aggregate footprint is substantial
