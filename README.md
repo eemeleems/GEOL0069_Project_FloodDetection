@@ -8,7 +8,7 @@
   <h3 align="center">Flood Extent Mapping and Depth Estimation from Sentinel-1/2</h3>
 
   <p align="center">
-    SAR change detection, supervised generalisation testing, and explainable GP depth regression for the November 2019 South Yorkshire floods
+    SAR change detection, supervised generalisation testing, and explainable GP depth regression for the November 2019 South Yorkshire floods.
     <br />
     <strong>GEOL0069 (AI4EO) - Final Project | UCL Earth Sciences</strong>
     <br />
@@ -49,7 +49,7 @@
       </ul>
     </li>
     <li><a href="#environmental-cost">Environmental Cost</a></li>
-    <li><a href="#project-report--video">Project Report & Video</a></li>
+    <li><a href="#project-video">Project Video</a></li>
     <li><a href="#references">References</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -59,13 +59,13 @@
 
 ## About The Project
 
-In November 2019, an exceptional meteorological event dropped a month's worth of rainfall over South Yorkshire in 24 hours. The River Don breached its banks, severely flooding the village of Fishlake and damaging approximately 1,600 regional properties.
+In November 2019, an exceptional meteorological event dropped a month's worth of rainfall over South Yorkshire in 24 hours. The River Don breached its banks, severely flooding the village of Fishlake and damaging approximately 1,600 properties in the region.
 
 This repository presents a machine learning pipeline addressing two central challenges in satellite-based disaster response:
 1. **Flood Extent Detection:** Optimising microwave backscatter properties from Sentinel-1 Synthetic Aperture Radar (SAR).
 2. **Flood Depth Estimation:** Developing topographically driven regressions via data fusion of SAR, Sentinel-2 multispectral optical indices, and Digital Elevation Models (DEM).
 
-Rather than validating models on a single scene, this framework enforces a strict out-of-sample layout across three targeted locations to isolate genuine spatial and temporal generalisation from simple pixel memorisation:
+Rather than validating models on a single scene, we address three targeted locations to isolate genuine spatial and temporal generalisation from simple pixel memorisation:
 * **Training Scene:** Fishlake, November 2019 (Peak flood event).
 * **Spatial Test Scene:** Bentley / Toll Bar, November 2019 (Same storm event, distinct floodplain characteristics).
 * **Temporal Test Scene:** Fishlake, January 2021 (Storm Christoph – same geographic coordinate, different environmental preconditions and flood boundaries).
@@ -82,6 +82,8 @@ Rather than validating models on a single scene, this framework enforces a stric
 ### Research Questions
 
 1. Do machine learning classifiers (Random Forest, SVM, CNN) trained on a change-detection backscatter threshold baseline extract underlying physical indicators that generalise across space and time, or do they simply mirror the empirical rule they were given?
+<br />
+
 2. Does the integration of post-flood optical water-colour indices provide complementary insights for flood depth estimation over a flat floodplain compared to standard terrain-derived proxies alone? Which spectral features are most informative?
 
 ### Built With
@@ -110,12 +112,16 @@ GEOL0069_Project_FloodDetection/
 │   └── Flood_Notebook3_Regression_XAI.ipynb      <- depth proxy, GP regression, ARD, SHAP
 └── images/
     ├── LOGO_README.png
-    ├── sar_backscatter_comparison.png
-    ├── threshold_baseline_map.png
-    ├── core_margin_split.png
-    ├── classification_outputs.png
-    ├── optical_indices.png
-    └── shap_summary.png
+    ├── Notebook1_3Scenes_ThresholdBaseline.png
+    ├── Notebook1_FishlakeSentinel1.png
+    ├── Notebook1_FishlakeThresholdBaseline.png
+    ├── Notebook2_BentleyTollBar_3Models.png
+    ├── Notebook2_ModelComparisonIoU.png
+    ├── Notebook3_FloodUncertainty+Depth.png
+    ├── Notebook3_GP_ARD.png
+    ├── Notebook3_Kmeans.png
+    ├── Notebook3_NDWWI+MNDWI.png
+    └── Notebook3_SHAPbeeswarm.png
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -134,50 +140,56 @@ GEOL0069_Project_FloodDetection/
 
 ### Phase 1: Threshold Baseline (Notebook 1)
 
-A single SAR change-detection rule anchors every comparison made in this project: backscatter that drops by more than 3 dB between the pre-flood and mid-flood Sentinel-1 acquisitions, and falls below -17 dB in absolute terms, is flagged as flooded. This Threshold Baseline isn't used as ground truth - it's the fixed reference point against which every downstream model in Notebooks 2 and 3 is tested, so that "the model agrees with the baseline" and "the model has learned something real" can be told apart.
+Every comparison made in this project is compared against a single SAR change-detection rule: backscatter that drops by more than 3 dB between the pre-flood and mid-flood Sentinel-1 acquisitions, and falls below -17 dB in absolute terms, is flagged as flooded. This Threshold Baseline is the fixed reference point against which every downstream model in Notebooks 2 and 3 is tested.
 
 <br />
 <div align="center">
-  <img src="images/sar_backscatter_comparison.png" alt="Pre-flood vs mid-flood SAR backscatter" width="650">
-  <p><em>Pre-flood vs. mid-flood Sentinel-1 backscatter intensity over the study area.</em></p>
+  <img src="images/Notebook1_FishlakeSentinel1.png" alt="Pre-flood vs mid-flood SAR backscatter" width="650">
+  <p><em>Figure 1: Pre-flood vs. mid-flood Sentinel-1 backscatter intensity over the study area, the difference between the two, and the Copernicus DEM for reference.</em></p>
 </div>
 
 <br />
 <div align="center">
-  <img src="images/threshold_baseline_map.png" alt="Threshold baseline flood map" width="650">
-  <p><em>The resulting Threshold Baseline flood extent, used as the reference point throughout the project.</em></p>
+  <img src="images/Notebook1_FishlakeThresholdBaseline.png" alt="Threshold baseline flood map" width="650">
+  <p><em>Figure 2: The resulting Threshold Baseline flood extent, used as the reference point throughout the project.</em></p>
 </div>
 
 ### Phase 2: Classification and Generalisation Testing (Notebook 2)
+
+<br />
+<div align="center">
+  <img src="images/Notebook1_3Scenes_ThresholdBaseline.png" alt="Threshold Baseline for all 3 Scenes" width="650">
+  <p><em>Figure 3: The Threshold Baseline flood extent for all of the Scenes used: Fishlake 2019, Bentley/Toll Bar 2019, and Fishlake 2021.</em></p>
+</div>
 
 Training a classifier directly on the Threshold Baseline's own output would guarantee near-perfect agreement by construction, since the labels and the inputs come from the same rule. To avoid this, the training scene is split into a **Confident Core** (ΔVV < -4.5 dB, confidently flooded, or ΔVV > -1.5 dB, confidently dry) used for training, and an **Ambiguous Margin** (everything in between) held out for evaluation. Random Forest, SVM (RBF kernel), and a patch-based 2D CNN are trained only on the Confident Core, then tested on the Ambiguous Margin and on two fully independent scenes: a different location hit by the same storm (Bentley/Toll Bar), and the same location during a different storm fourteen months later (Fishlake, January 2021).
 
 <br />
 <div align="center">
-  <img src="images/core_margin_split.png" alt="Confident core and ambiguous margin split" width="650">
-  <p><em>Spatial split of the training scene into the Confident Core (training) and Ambiguous Margin (held-out evaluation).</em></p>
+  <img src="images/Notebook2_BentleyTollBar_3Models.png" alt="Random Forest, SVM, and CNN classification outputs" width="650">
+  <p><em>Figure 7: Predicted flood extent from Random Forest, SVM, and the CNN for Bentley/Toll Bar, Nov 2019.</em></p>
 </div>
 
 <br />
 <div align="center">
-  <img src="images/classification_outputs.png" alt="Random Forest, SVM, and CNN classification outputs" width="650">
-  <p><em>Predicted flood extent from Random Forest, SVM, and the CNN across the evaluation scenes.</em></p>
+  <img src="images/Notebook2_ModelComparisonIoU.png" alt="Notebook 2 Model Comparison" width="650">
+  <p><em>Figure 9: An overall model comparison of 'Intersection over Union' (our accuracy measurement) for Margin pixels, Spatial Testing (Bentley/Toll Bar), and Temporal Testing (Fishlake Jan 2021). </em></p>
 </div>
 
 ### Phase 3: Depth Proxy and Explainable Regression (Notebook 3)
 
-SAR backscatter says where the water is, not how deep it is. With no LiDAR or gauge data available for this floodplain, depth is approximated with a DEM-derived proxy in the spirit of Height Above Nearest Drainage (Rennó et al., 2008): the maximum elevation along the flood's edge, minus each pixel's own elevation. This is compared against the post-flood Sentinel-2 scene's water-colour indices - NDWI, MNDWI, and the Stumpf ratio, computed from the green, NIR, and SWIR bands. Three Gaussian Process regression models, each using a Matérn 5/2 kernel with Automatic Relevance Determination (ARD), are fitted on SAR+terrain features alone, optical features alone, and the two combined; the resulting feature lengthscales are cross-checked against SHAP values from an independent Random Forest regressor.
+SAR backscatter provides floodwater locations, but no depth information it. With no obvious LiDAR or gauge data available for this floodplain, depth is approximated with a DEM-derived proxy in the spirit of Height Above Nearest Drainage (Rennó et al., 2008): the maximum elevation along the flood's edge, minus each pixel's own elevation. This is compared against the post-flood Sentinel-2 scene's water-colour indices - NDWI, MNDWI, and the Stumpf ratio, computed from the green, NIR, and SWIR bands. Three Gaussian Process regression models, each using a kernel with Automatic Relevance Determination (ARD), are fitted on SAR+terrain features alone, optical features alone, and the two combined. The resulting feature lengthscales are cross-checked against SHAP values from an independent Random Forest regressor.
 
 <br />
 <div align="center">
-  <img src="images/optical_indices.png" alt="Sentinel-2 derived water colour indices" width="650">
-  <p><em>NDWI and MNDWI derived from the post-flood Sentinel-2 scene, used as regression features.</em></p>
+  <img src="images/Notebook3_NDWI+MNDWI.png" alt="Sentinel-2 derived water colour indices" width="650">
+  <p><em>(Part of) Figure 10: NDWI and MNDWI derived from the post-flood Sentinel-2 scene, used as regression features.</em></p>
 </div>
 
 <br />
 <div align="center">
-  <img src="images/shap_summary.png" alt="SHAP global feature importance summary" width="650">
-  <p><em>Global SHAP feature attribution for the Random Forest depth regressor, cross-checked against the GP/ARD lengthscales.</em></p>
+  <img src="images/Notebook3_SHAPbeeswarm.png" alt="SHAP global feature importance summary" width="650">
+  <p><em>Figure 16: Global SHAP feature attribution for the Random Forest depth regressor, cross-checked against the GP/ARD lengthscales.</em></p>
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -192,7 +204,7 @@ SAR backscatter says where the water is, not how deep it is. With no LiDAR or ga
 | Support Vector Machine | 0.963 | 0.981 | 0.952 |
 | Patch-based 2D CNN | 0.547 | 0.679 | 0.421 |
 
-Random Forest generalised most consistently across all three evaluation axes, consistent with learning something close to the underlying SAR threshold rule rather than scene-specific texture. The CNN generalised worst and, notably, dropped further on the temporal test than the spatial one, suggesting some reliance on acquisition-specific SAR texture rather than a fully transferable flood signal.
+Random Forest generalised most consistently across all three evaluation axes, consistent with learning something close to the underlying SAR threshold rule rather than scene-specific texture. The CNN generalised worst and notabl, dropped further on the temporal test than the spatial one, suggesting some reliance on acquisition-specific SAR texture rather than a fully transferable flood signal.
 
 **Depth regression**
 
@@ -202,11 +214,11 @@ Random Forest generalised most consistently across all three evaluation axes, co
 | Optical only | 0.165 | 0.112 |
 | **Combined (SAR + terrain + optical)** | **0.136** | **0.186** |
 
-Combining SAR/terrain and optical features gave the best held-out performance - a real but modest improvement over either feature set alone, limited by how flat the floodplain is relative to the resolution of the depth proxy.
+Combining SAR/terrain and optical features gave the best held-out performance. This provided a slight improvement over either feature set alone, but this improvement was limited by how flat the floodplain is relative to the resolution of the depth proxy.
 
 **Explainability**
 
-ARD lengthscales and SHAP partially agree on which features matter (elevation and water-colour indices both feature prominently) but disagree on the specific ranking, illustrating that two reasonable XAI methods applied to related models don't always tell the same story.
+ARD lengthscales and SHAP partially agree on which features matter (elevation and water-colour indices both feature prominently) but disagree on the specific ranking, illustrating that two reasonable XAI methods applied to related models don't always produce the same pattern of results.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -244,7 +256,7 @@ Every model trained in Notebooks 2 and 3 is tracked with [CodeCarbon](https://co
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Project Report & Video
+## Project Video
 
 * A short video walkthrough explaining the code and approach is available here: **[Watch on YouTube](https://www.youtube.com/watch?v=YOUR-VIDEO-ID)**.
 
@@ -279,7 +291,7 @@ Project Link: [https://github.com/eemeleems/GEOL0069_Project_FloodDetection](htt
 ## Acknowledgments
 
 * This project is the final assignment for GEOL0069 Artificial Intelligence for Earth Observation (25/26) at University College London.
-* Thank you to [Prof. Michel Tsamados](https://profiles.ucl.ac.uk/11855-michel-tsamados), ([Weibin Chen](https://www.ucl.ac.uk/mathematical-physical-sciences/weibin-chen) and [Shambu Bhandari Sharma](https://www.ucl.ac.uk/mathematical-physical-sciences/earth-sciences/people/research-students/shambhu-bhandari-sharma) for the GEOL0069 module content and guidance this project builds on.
+* Thank you to [Prof. Michel Tsamados](https://profiles.ucl.ac.uk/11855-michel-tsamados), [Weibin Chen](https://www.ucl.ac.uk/mathematical-physical-sciences/weibin-chen) and [Shambu Bhandari Sharma](https://www.ucl.ac.uk/mathematical-physical-sciences/earth-sciences/people/research-students/shambhu-bhandari-sharma) for the GEOL0069 module content and guidance this project builds on.
 * Thank you to [ESA/Copernicus](https://www.copernicus.eu/en) for the availability of Sentinel-1 and Sentinel-2 data, and to Google Earth Engine for the processing platform.
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template), on which this README's structure is based.
 
