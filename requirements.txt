@@ -1,0 +1,10 @@
+earthengine-api
+geemap
+numpy
+pandas
+scipy
+scikit-learn
+tensorflow
+shap
+codecarbon
+matplotlib
