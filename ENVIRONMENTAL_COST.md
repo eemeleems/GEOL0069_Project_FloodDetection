@@ -1,9 +1,9 @@
 # Environmental Cost Assessment
 
 This document accompanies the GEOL0069 final project (Notebooks 1-3: flood extent mapping and depth
-estimation for Fishlake, South Yorkshire). It aims to report the directly measured compute
+estimation for Fishlake, South Yorkshire). It aims to report the directly measured computational
 emissions for this project, and to place that figure in a wider context, in terms of the
-additional, unmeasured compute involved in producing this project, and the broader infrastructure
+additional, unmeasured computation involved in producing this project, and the broader infrastructure
 (cloud platforms, satellite data, generative AI tools) that the project made use of.
 
 Throughout, figures are presented as estimates with sources given. The aim is to provide an approximate
@@ -44,7 +44,7 @@ CodeCarbon estimates emissions as energy consumed multiplied by the carbon inten
 grid powering that computation. On Google Colab, the underlying hardware location is not exposed to the
 user, so the carbon intensity CodeCarbon applies is not directly verifiable from within the notebook.
 
-Dividing the two totals above gives an implied carbon intensity for this project's compute:
+Dividing the two totals above gives an implied carbon intensity for this project's computation:
 
 $$\frac{81.31 \text{ g}}{210.83 \text{ Wh}} \times 1000 \approx 386 \text{ g CO2/kWh}$$
 
@@ -221,12 +221,12 @@ expected to be negligible relative to the figures above:
 
 | Component | Estimated CO2e |
 |---|---|
-| CodeCarbon-measured compute (Notebooks 2-3) | 81.31 g |
+| CodeCarbon-measured computation (Notebooks 2-3) | 81.31 g |
 | Author's laptop use (50-60 h, central estimate) | ~252-302 g |
 | Generative AI assistance (tens of prompts, Gemini-based estimate) | ~0.6-1.8 g |
 | **Total estimated** | **~334-385 g** |
 
-Even accounting for laptop use and AI assistance alongside the measured compute figure, this project's
+Even accounting for laptop use and AI assistance alongside the measured computation figure, this project's
 total estimated footprint is on the order of **330-385 g CO2e** - roughly equivalent to **2.6-3.0 km of
 driving** in an average UK car (DfT 2024 data). This remains modest in absolute
 terms. It is however important to consider that the calculated CodeCarbon value (81.31 g) likely 
