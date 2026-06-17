@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/eemeleems/GEOL0069_Project_FloodDetection">
-    <img src="images/LOGO_README.png" alt="Logo" width="150">
+    <img src="images/LOGO_README.png" alt="Logo" width="250">
   </a>
 
   <h3 align="center">Flood Extent Mapping and Depth Estimation from Sentinel-1/2</h3>
@@ -21,13 +21,6 @@
     ·
     <a href="ENVIRONMENTAL_COST.md">Environmental cost</a>
   </p>
-</div>
-
-<div align="center">
-  <img src="Sentinel1_INFOGRAPHIC.png" alt="Project infographic" width="500">
-  <br />
-  <br />
-  <p><em>Infographic: Overview of the Sentinel-1 SAR instrument and application to flood-mapping.</em></p>
 </div>
 
 <details>
@@ -69,6 +62,15 @@ Rather than validating models on a single scene, this framework enforces a stric
 * **Training Scene:** Fishlake, November 2019 (Peak flood event).
 * **Spatial Test Scene:** Bentley / Toll Bar, November 2019 (Same storm event, distinct floodplain characteristics).
 * **Temporal Test Scene:** Fishlake, January 2021 (Storm Christoph – same geographic coordinate, different environmental preconditions and flood boundaries).
+
+<br />
+<br />
+<div align="center">
+  <img src="Sentinel1_INFOGRAPHIC.png" alt="Project infographic" width="500">
+  <br />
+  <br />
+  <p><em>Infographic: Overview of the Sentinel-1 SAR instrument and application to flood-mapping.</em></p>
+</div>
 
 ### Research Questions
 
@@ -178,7 +180,7 @@ Every model trained in Notebooks 2 and 3 is tracked with [CodeCarbon](https://co
 
 ## Contact
 
-[Emily Grace Adams] - [LinkedIn](https://www.linkedin.com/in/emily-grace-adams/) - emily.adams.25@ucl.ac.uk
+Emily Grace Adams - [LinkedIn](https://www.linkedin.com/in/emily-grace-adams/) - emily.adams.25@ucl.ac.uk
 
 Project Link: [https://github.com/eemeleems/GEOL0069_Project_FloodDetection](https://github.com/YOUR-USERNAME/GEOL0069_Project_FloodDetection)
 
@@ -187,7 +189,7 @@ Project Link: [https://github.com/eemeleems/GEOL0069_Project_FloodDetection](htt
 ## Acknowledgments
 
 * This project is the final assignment for GEOL0069 Artificial Intelligence for Earth Observation (25/26) at University College London.
-* Thank you to [Prof. Michel Tsamados](https://profiles.ucl.ac.uk/11855-michel-tsamados) and the GEOL0069 teaching team for the module content and guidance this project builds on.
+* Thank you to [Prof. Michel Tsamados](https://profiles.ucl.ac.uk/11855-michel-tsamados), ([Weibin Chen](https://www.ucl.ac.uk/mathematical-physical-sciences/weibin-chen) and [Shambu Bhandari Sharma](https://www.ucl.ac.uk/mathematical-physical-sciences/earth-sciences/people/research-students/shambhu-bhandari-sharma) for the GEOL0069 module content and guidance this project builds on.
 * Thank you to [ESA/Copernicus](https://www.copernicus.eu/en) for the availability of Sentinel-1 and Sentinel-2 data, and to Google Earth Engine for the processing platform.
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template), on which this README's structure is based.
 
