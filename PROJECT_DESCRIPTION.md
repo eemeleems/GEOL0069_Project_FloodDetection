@@ -46,11 +46,17 @@ While rapid, accurate mapping is vital for emergency response and protection of 
 <br />
 *Figure 9: An overall model comparison of 'Intersection over Union' (our accuracy measurement) for Margin pixels, Spatial Testing (Bentley/Toll Bar), and Temporal Testing (Fishlake Jan 2021).*
 
+<br />
+<br />
+
 **Multimodal Flood Depth Estimation**: Because satellite backscatter highlights water location rather than volume, we evaluated how effectively remote sensing data can predict a terrain-derived depth proxy across a flat floodplain.
 
 ![Flood Uncertainty Best Model](images/Notebook3_FloodUncertainty+Depth.png)
 <br />
 *Figure 14: Full depth and uncertainty map for best approach: Combined (C) using SAR + terrain AND optical.*
+
+<br />
+<br />
 
 **See the [Project Notebooks](Project_Notebooks/) and [README](README.md) for a more extensive description of methodology.**
 
