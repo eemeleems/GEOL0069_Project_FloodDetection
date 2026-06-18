@@ -270,6 +270,7 @@ Every model trained in Notebooks 2 and 3 is tracked with [CodeCarbon](https://co
 ## References
 
 * Doncaster Council (2020), Section 19 Flood Investigation Report: November 2019 Flood Event. Flood Risk Management Team. [doncaster.gov.uk/services/emergencies/flood-recovery-report](https://doncaster.gov.uk/services/emergencies/flood-recovery-report)
+* GEOL0069: AI for Earth Observations, Module Content, University College London. [AI4EO Github - CPOM](https://github.com/CPOMUCL/GEOL0069-AI4EO).
 * International Energy Agency (IEA) (2024), Energy demand from AI: Tracking global data centre electricity trends. [iea.org/reports/energy-and-ai/energy-demand-from-ai](https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai)
 * Lundberg, S.M. and Lee, S.-I. (2017), A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems*, 30, 4765-4774. [proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html](https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html)
 * McFeeters, S.K. (1996), The use of the Normalized Difference Water Index (NDWI) in the delineation of open water features. *International Journal of Remote Sensing*, 17(7), 1425-1432. [doi.org/10.1080/01431169608948714](https://doi.org/10.1080/01431169608948714)
