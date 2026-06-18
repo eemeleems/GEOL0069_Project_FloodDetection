@@ -58,13 +58,13 @@ While rapid, accurate mapping is vital for emergency response and protection of 
 
 ### 2. Project Limitations:
 
-- Validation Limits of the Depth Proxy: A primary constraint is the reliance on an unvalidated, HAND-style elevation proxy rather than true hydrodynamic measurements. While topographically logical, this proxy assumes a uniform horizontal flood plane. It cannot capture localized variations driven by surface obstacles, micro-topography, or urban defenses.
+- Validation Limits of the Depth Proxy: The reliance on an unvalidated, HAND-style elevation proxy rather than true hydrodynamic measurements is a constraint. While a useful proxy, it assumes a uniform horizontal flood plane. It cannot capture localized variations driven by surface obstacles, micro-topography, or urban defenses.
 
 - Topographic Constraints on Fluvial Floodplains: The extreme flatness of the South Yorkshire floodplain limits the predictive value of elevation data. Because minor variations in elevation correspond to large changes in surface area, the depth proxy concentrates close to zero. This constraint explains the low $R^2$ metrics and indicates that these depth estimation models may perform differently in high-relief valleys.
 
-- Temporal Mismatch in Sensor Fusion: The Sentinel-2 optical scene was captured on 18 November 2019, roughly ten days after the mid-flood Sentinel-1 SAR acquisition at the peak of the event. This delay was unavoidable due to persistent cloud cover during the storm. Consequently, the optical data captures a receding flood stage with different turbidity profiles, meaning the combined model is fusing two separate points in time.
+- Temporal Mismatch in Sensors: The Sentinel-2 optical scene was captured on 18 November 2019, roughly ten days after the mid-flood Sentinel-1 SAR acquisition at the peak of the event. This delay was unavoidable due to persistent cloud cover during the storm. Consequently, the optical data captures a receding flood stage with likely different turbidity profiles, meaning the combined model is fusing two separate points in time.
 
-- Temporal Resolution Constraints: The project relies on single image pairs, capturing static snapshots rather than the full flood hydrograph. While out-of-sample tests partially demonstrate spatial and temporal transferability, they cannot track how depth or extent evolve dynamically within a single event.
+- Temporal Resolution Constraints: The project relies on single image pairs, capturing static snapshots rather than the full flood hydrograph. While out-of-sample tests partially demonstrate spatial and temporal transferability, they do not track how depth or extent evolve dynamically within a single event.
 
 ### 3. Reference List:
 
