@@ -130,7 +130,7 @@ GEOL0069_Project_FloodDetection/
 
 | Notebook | Content |
 |---|---|
-| **1. Data Acquisition** | Fetches Sentinel-1 SAR (pre/mid-flood), Copernicus DEM, and Sentinel-2 optical imagery via Earth Engine for all three scenes. Computes an independent SAR change-detection **Threshold Baseline** flood map for each scene, used throughout the project as a reference rather than ground truth. |
+| **1. Data Acquisition** | Fetches Sentinel-1 SAR (pre/mid-flood), Copernicus DEM, and Sentinel-2 optical imagery via Earth Engine for all three scenes. Computes an independent SAR change-detection Threshold Baseline flood map for each scene, used throughout the project as a reference rather than ground truth. |
 | **2. Classification** | Splits the training scene into a confident core and an ambiguous margin to avoid label circularity, then trains Random Forest, SVM, and a CNN on the confident core. Evaluates all three against the Threshold Baseline on the ambiguous margin (in-scene), the spatial test scene, and the temporal test scene. |
 | **3. Regression & XAI** | Defines a DEM-based relative depth proxy, computes Sentinel-2 water-colour indices (NDWI, MNDWI, Stumpf ratio), and compares three Gaussian Process regression approaches (SAR+terrain, optical, combined) using ARD lengthscales for interpretation. Cross-checks with K-means clustering and SHAP, and discusses the project's environmental footprint. |
 
