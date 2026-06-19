@@ -259,8 +259,8 @@ Every model trained in Notebooks 2 and 3 is tracked with [CodeCarbon](https://co
 ## Project Video
 
 <div align="center">
-  <a href="https://www.youtube.com/watch?v=YOUR-VIDEO-ID">
-    <img src="https://img.youtube.com/vi/YOUR-VIDEO-ID/maxresdefault.jpg" alt="Watch the video walkthrough" width="650">
+  <a href="https://www.youtube.com/watch?v=bJ085D0O1ls">
+    <img src="https://img.youtube.com/vi/bJ085D0O1ls/maxresdefault.jpg" alt="Watch the video walkthrough" width="650">
   </a>
   <p><em>Click to watch the video walkthrough on YouTube.</em></p>
 </div>
